@@ -26,12 +26,20 @@ public class Application {
 	@Bean
 	CommandLineRunner commandLineRunner(PostService postService, SubscriberService subscriberService) {
 		return args -> {
-
 			List<Post> posts = postService.findAll();
 			System.out.println(posts);
 
 			List<Subscriber> subscribers = subscriberService.findAll();
 			System.out.println(subscribers);
+		};
+	}
+
+	@Bean
+	CommandLineRunner dsCommandLineRunner(DataSource blogDataSource, DataSource subscriberDataSource) {
+		return args -> {
+			// both print out jdbc:h2:mem:blog
+			System.out.println(blogDataSource.getConnection().getMetaData().getURL());
+			System.out.println(subscriberDataSource.getConnection().getMetaData().getURL());
 
 		};
 	}
