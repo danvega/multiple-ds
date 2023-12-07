@@ -35,7 +35,7 @@ public class Application {
 	}
 
 	@Bean
-	CommandLineRunner dsCommandLineRunner(DataSource blogDataSource, DataSource subscriberDataSource) {
+	CommandLineRunner dsCommandLineRunner(@Qualifier("blogDataSource") DataSource blogDataSource, @Qualifier("subscriberDataSource") DataSource subscriberDataSource) {
 		return args -> {
 			// both print out jdbc:h2:mem:blog
 			System.out.println(blogDataSource.getConnection().getMetaData().getURL());
