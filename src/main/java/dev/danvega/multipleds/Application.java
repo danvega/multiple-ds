@@ -44,8 +44,13 @@ public class Application {
 		};
 	}
 
-	@Bean("subscriberJdbcClient")
-	JdbcClient jdbcClient(@Qualifier("subscriberDataSource") DataSource dataSource) {
+	@Bean
+	JdbcClient subscriberJdbcClient(@Qualifier("subscriberDataSource") DataSource dataSource) {
+		return JdbcClient.create(dataSource);
+	}
+
+	@Bean
+	JdbcClient blogJdbcClient(@Qualifier("blogDataSource") DataSource dataSource) {
 		return JdbcClient.create(dataSource);
 	}
 
