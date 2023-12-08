@@ -14,6 +14,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.simple.JdbcClient;
 
 import javax.sql.DataSource;
+import java.util.Arrays;
 import java.util.List;
 
 @SpringBootApplication
@@ -40,7 +41,6 @@ public class Application {
 			// both print out jdbc:h2:mem:blog
 			System.out.println(blogDataSource.getConnection().getMetaData().getURL());
 			System.out.println(subscriberDataSource.getConnection().getMetaData().getURL());
-
 		};
 	}
 
