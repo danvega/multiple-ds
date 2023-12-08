@@ -52,7 +52,7 @@ public class DataSourceConfiguration {
     }
 
     @Bean
-    public DataSource subscriberDataSource(DataSourceProperties subscribersDataSourceProperties) {
+    public DataSource subscriberDataSource(@Qualifier("subscribersDataSourceProperties") DataSourceProperties subscribersDataSourceProperties) {
         return DataSourceBuilder
                 .create()
                 .url(subscribersDataSourceProperties.getUrl())
